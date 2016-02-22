@@ -1,2 +1,1 @@
-config
-======
+assorted configuration and init files
