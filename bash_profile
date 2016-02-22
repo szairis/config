@@ -1,38 +1,47 @@
-# MacPorts
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# MATLAB
-export PATH=/Applications/MATLAB_R2013a.app/bin:${PATH}
-# MYSQL
-export PATH=$PATH:/usr/local/mysql/bin
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
-export VERSIONER_PYTHON_PREFER_64_BIT=no
-export VERSIONER_PYTHON_PREFER_32_BIT=yes
+#mydate=`date "+%H:%M:%S %m/%d/%y"`
+#echo "hi $USER, the current time is $mydate"
 
-mydate=`date "+%H:%M:%S %m/%d/%y"`
-echo "hi $USER, the current time is $mydate"
+## homebrew API token
+export HOMEBREW_GITHUB_API_TOKEN=bd7e7580d2d934c96239a7414d6fa38ba5ae7458
 
-alias ll='ls -lh'
-alias la='ls -alh'
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-alias ipyn='ipython notebook'
-alias doc='cd ~/Documents'
-alias desk='cd ~/Desktop'
-alias res='cd ~/Documents/MD-PhD/5-Research'
-alias matlab='matlab -nodesktop -nosplash'
-alias irb='/opt/local/bin/irb1.8'
+## customize the prompt
+export PS1="\[\033[0;32m\]local: \w $\[\033[0m\] "
 
-#customize the prompt
-#export PS1="\w$ "
-export PS1="\[\033[0;32m\]\w$\[\033[0m\] "
-
-#colors
+## colors
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-export GREP_OPTIONS='--color=auto'
 
-if [ -f /opt/local/etc/bash_completion ]; then
-        . /opt/local/etc/bash_completion
+## bash completion
+if [ -f /usr/local/etc/bash_completion ]; then
+        . /usr/local/etc/bash_completion
 fi
 
-export LESSOPEN="| /opt/local/bin/src-hilite-lesspipe.sh %s"
+## source highlighting in less
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
+
+## paths
+export PATH=/usr/local/bin:$PATH
+export EVOMOD_DIR=/Users/sakellarios/Checkout/EvoMod
+export FRAMESHIFT_DIR=/Users/sakellarios/Checkout/frameshift
+
+## navigation
+alias ll='ls -lh'
+alias la='ls -a'
+alias apps='cd /Applications'
+alias doc='cd ~/Documents'
+alias desk='cd ~/Desktop'
+alias drop='cd ~/Dropbox'
+alias fun='cd ~/Documents/Fun'
+alias checkout='cd ~/Checkout'
+
+## commands
+alias emacs='emacs -nw'
+alias emacs_gui='/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs'
+alias grepc='grep --color'
+
+## REPL
+alias ipyn='ipython notebook'
+alias matlab='matlab -nodesktop -nosplash'
+#alias perl='perl -d -e 1'
+alias R="R --no-save"
